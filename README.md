@@ -1,0 +1,1 @@
+This is my automation testing project for OPEN PROJECT
