@@ -1,1 +1,1 @@
-This is my automation testing project for OPEN PROJECT
+This is my automation testing project on OPEN PROJECT
