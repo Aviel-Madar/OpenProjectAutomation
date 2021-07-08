@@ -1,27 +1,42 @@
 import requests
 from requests.auth import HTTPBasicAuth
 
-import main
+from my_config import config
 
-my_auth = HTTPBasicAuth(main.config.my_auth['name'], ['api_key'])
+base_url = config['base_url']
+
+
+class BasicAuth:
+    def __init__(self):
+        self.my_auth = HTTPBasicAuth(config['my_auth']['name'], config['my_auth']['api_key'])
 
 
 class RestClient:
-
-    def __init__(self, base_url):
+    def __init__(self):
         self.base_url = base_url
+        self.basic_auth = BasicAuth().my_auth
 
     def get(self, path):
-        pass
+        url = self.base_url + path
+        response = requests.get(url, auth=self.basic_auth, headers={'Content-Type': 'application/json'})
+        return response
 
-    def post(self, path):
-        pass
+    def post(self, path, payload):
+        url = self.base_url + path
+        response = requests.post(url, json=payload, auth=self.basic_auth)
+        return response
 
-    def put(self, path):
-        pass
+    def put(self, path, payload):
+        url = self.base_url + path
+        response = requests.put(url, json=payload, auth=self.basic_auth)
+        return response
 
-    def patch(self, path):
-        pass
+    def patch(self, path, payload):
+        url = self.base_url + path
+        response = requests.patch(url, json=payload, auth=self.basic_auth)
+        return response
 
     def delete(self, path):
-        pass
+        url = self.base_url + path
+        response = requests.delete(url, auth=self.basic_auth, headers={'Content-Type': 'application/json'})
+        return response
