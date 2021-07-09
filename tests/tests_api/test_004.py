@@ -7,7 +7,7 @@ from framework.api.projects_api import ProjectsApi
 def test_004():
     project_api = ProjectsApi()
     project_name = f"new project {datetime.now().strftime('%d/%m/%Y-%H:%M:%S')}"
-    project_identifier = f"newidentifier{datetime.now().strftime('%d%m%Y%H%M%S')}"
+    project_identifier = f"newIdentifier{datetime.now().strftime('%d%m%Y%H%M%S')}"
     payload = {
         "name": project_name,
         "identifier": project_identifier
