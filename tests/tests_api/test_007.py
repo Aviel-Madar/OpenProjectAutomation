@@ -5,7 +5,7 @@ from framework.api.work_pkg_api import WorkPkgApi
 
 def test_007():
     work_pkg_api = WorkPkgApi()
-    work_subject = f"new project {datetime.now().strftime('%d/%m/%Y-%H:%M:%S')}"
+    work_subject = f"new subject {datetime.now().strftime('%d/%m/%Y-%H:%M:%S')}"
 
     href_to_project_id = "/api/v3/projects/3"
     name_project = "TestProject1"
