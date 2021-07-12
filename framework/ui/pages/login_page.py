@@ -19,11 +19,11 @@ class LoginPage(BasePage):
         return self
 
     def type_user_input(self):
-        self.type(self.USER_INPUT, "admin")
+        self.type(self.USER_INPUT, config['my_login']['username'])
         return self
 
     def type_password_input(self):
-        self.type(self.PASSWORD_INPUT, "3t3QfPTna!Z6wjZ")
+        self.type(self.PASSWORD_INPUT, config['my_login']['password'])
         return self
 
     def click_sub_btn(self):
