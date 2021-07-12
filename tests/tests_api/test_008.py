@@ -1,13 +1,14 @@
-from datetime import datetime
-
 from framework.api.work_pkg_api import WorkPkgApi
+
+from generator_string import GeneratorString
+from my_config import config
 
 
 def test_008():
     work_pkg_api = WorkPkgApi()
-    work_subject = f"new project {datetime.now().strftime('%d/%m/%Y-%H:%M:%S')}"
+    work_subject = f"work pkg created api {GeneratorString().get_unique_string()}"
 
-    href_to_project_id = "/api/v3/projects/3"
+    href_to_project_id = f"/api/v3/projects/{config['my_project_id']}"
     name_project = "TestProject1"
     payload = {
         "subject": work_subject,

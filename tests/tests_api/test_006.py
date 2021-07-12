@@ -1,12 +1,13 @@
-from datetime import datetime
-
 from framework.api.work_pkg_api import WorkPkgApi
+
+from generator_string import GeneratorString
+from my_config import config
 
 
 def test_006():
     work_pkg_api = WorkPkgApi()
-    work_package_id = 34
-    new_description = datetime.now().strftime('%d/%m/%Y-%H:%M:%S')
+    work_package_id = config['my_work_package_id']
+    new_description = f"update description api {GeneratorString().get_unique_string()}"
 
     work_pkg_api.get_work_package_by_id(work_package_id)
     payload = {

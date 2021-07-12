@@ -1,9 +1,11 @@
 from framework.api.work_pkg_api import WorkPkgApi
 
+from my_config import config
+
 
 def test_005():
     work_pkg_api = WorkPkgApi()
-    work_package_id = 34
+    work_package_id = config['my_work_package_id']
 
     expected_resp_code = 200
     expected_type = "Task"

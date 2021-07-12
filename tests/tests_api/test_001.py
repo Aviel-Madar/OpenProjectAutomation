@@ -1,10 +1,12 @@
 from framework.api.projects_api import ProjectsApi
 
+from my_config import config
+
 
 def test_fake_basic_auth():
     project_api = ProjectsApi()
     project_api.basic_auth.password = 'fake auth'
-    project_id = 3
+    project_id = config['my_project_id']
 
     project_api.get_project_by_id(project_id)
 
@@ -13,7 +15,7 @@ def test_fake_basic_auth():
 
 def test_001():
     project_api = ProjectsApi()
-    project_id = 3
+    project_id = config['my_project_id']
 
     expected_resp_code = 200
     expected_name = "TestProject1"

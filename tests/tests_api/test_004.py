@@ -1,13 +1,14 @@
 import time
-from datetime import datetime
 
 from framework.api.projects_api import ProjectsApi
+
+from generator_string import GeneratorString
 
 
 def test_004():
     project_api = ProjectsApi()
-    project_name = f"new project {datetime.now().strftime('%d/%m/%Y-%H:%M:%S')}"
-    project_identifier = f"newIdentifier{datetime.now().strftime('%d%m%Y%H%M%S')}"
+    project_name = f"project created api {GeneratorString().get_unique_string()}"
+    project_identifier = f"new_identifier{GeneratorString().get_unique_string()}"
     payload = {
         "name": project_name,
         "identifier": project_identifier
@@ -15,6 +16,7 @@ def test_004():
 
     project_api.create_project(payload)
 
+    time.sleep(2)
     new_project_id = project_api.response.json["id"]
 
     project_api.delete_project(new_project_id)

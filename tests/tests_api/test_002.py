@@ -1,12 +1,13 @@
-from datetime import datetime
-
 from framework.api.projects_api import ProjectsApi
+from generator_string import GeneratorString
+
+from my_config import config
 
 
 def test_002():
     project_api = ProjectsApi()
-    project_id = 3
-    new_description = datetime.now().strftime('%d/%m/%Y-%H:%M:%S')
+    project_id = config['my_project_id']
+    new_description = GeneratorString().get_unique_string()
     payload = {
         "description": {
             "raw": new_description
